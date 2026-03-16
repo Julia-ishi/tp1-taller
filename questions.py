@@ -28,11 +28,12 @@ while opcion not in categorias:
     print("Categoría no válida")
     opcion = input("Elegí una categoría: ")
 
-word = random.choice(categorias[opcion])
-guessed = []
-attempts = 6
-print()
-while attempts > 0:
+palabras = random.sample(categorias[opcion], len(categorias[opcion])) #genero una lista de palabras aleatorias de la categoría elegida, sin repetir ninguna
+for word in palabras:
+  guessed = []
+  attempts = 6
+  print()
+  while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
     progress = ""
     for letter in word:
@@ -64,6 +65,6 @@ while attempts > 0:
         attempts -= 1
         print("Esa letra no está en la palabra.")
     print()
-else:
-  print(f"¡Perdiste! La palabra era: {word}")
-print(f"puntaje final: {attempts}")
+  else:
+    print(f"¡Perdiste! La palabra era: {word}")
+  print(f"puntaje final: {attempts}")
