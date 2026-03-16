@@ -1,24 +1,37 @@
 #ESTE ES MI GRAN PROGRAMA
 
 import random
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
+categorias = {
+    "programacion": [
+        "python",
+        "programa",
+        "variable",
+        "funcion",
+        "bucle"
+    ],
+    "tipos de datos": [
+        "cadena",
+        "entero",
+        "lista"
     ]
-word = random.choice(words)
-guessed = []
-attempts = 6
-
+}
 
 print("¡Bienvenido al Ahorcado!")
 print()
+for categoria in categorias:
+    print("-", categoria)
 
+print()
+opcion = input("Elegí una categoría: ")
+
+while opcion not in categorias:
+    print("Categoría no válida")
+    opcion = input("Elegí una categoría: ")
+
+word = random.choice(categorias[opcion])
+guessed = []
+attempts = 6
+print()
 while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
     progress = ""
